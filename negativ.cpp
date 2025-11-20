@@ -18,7 +18,7 @@ struct Image {
     std::vector<unsigned char> data;
 };
 
-// ---- Load image (any format) ----
+// ---- Load image ----
 bool loadImage(const std::string &filename, Image &img) {
     unsigned char *pixels = stbi_load(filename.c_str(),
                                       &img.width,
@@ -35,7 +35,7 @@ bool loadImage(const std::string &filename, Image &img) {
     return true;
 }
 
-// ---- Save image (auto format by extension) ----
+// ---- Save image ----
 bool saveImage(const std::string &filename, const Image &img) {
     auto extPos = filename.find_last_of('.');
     if (extPos == std::string::npos) return false;
